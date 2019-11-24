@@ -1,0 +1,26 @@
+---
+version: 1
+disable_existing_loggers: true
+formatters:
+   json:
+     (): jsonlogging.Formatter
+     format: '{asctime} - {level} - {name} - {filename}:{lineno}:{funcName} - {message}'
+     style: '{'
+     keymap:
+       name: domain
+       asctime: ts
+     relative_paths: false
+handlers:
+  console:
+    class: logging.StreamHandler
+    stream: ext://sys.stdout
+    formatter: json
+loggers:
+  application:
+    level: INFO
+root:
+  handlers:
+  - console
+  level: DEBUG
+
+# vim: et:sw=2:syntax=2:ts=2:

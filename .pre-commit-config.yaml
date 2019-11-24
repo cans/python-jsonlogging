@@ -1,0 +1,25 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.3.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  # - id: check-docstring-first
+  # - id: check-json
+  # - id: check-added-large-files
+  # - id: check-yaml
+  - id: debug-statements
+  # - id: name-tests-test
+  # - id: double-quote-string-fixer
+  # Disabled 'cause of psycopg2-binary (which must come first), this sorts
+  # requirements.
+  # - id: requirements-txt-fixer
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 3.7.1
+  hooks:
+    - id: flake8
+      files: '.*\.py'
+- repo: https://github.com/syntaqx/git-hooks
+  rev: v0.0.16
+  hooks:
+  - id: circleci-config-validate
